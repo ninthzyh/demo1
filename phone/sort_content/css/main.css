@@ -1,0 +1,30 @@
+
+.b-gra{
+	border-color:#d6d6d6;
+}
+.t-gra1{
+	color:#787878;
+}
+.resad{
+	background-image:url('myImg/pop.png');
+}
+.umwh{
+	min-height:9em;
+	min-width:7.25em;
+}
+.umar-h1{
+	margin:1em .5em 0 .5em;
+}
+
+#jieshao{
+    border-bottom: solid 1px #636363;
+    font-family:"微软雅黑";
+    padding-left:6px;
+    padding-bottom: 6px;
+    
+}
+.b-c{
+    margin-top:10px;
+    background-color: #3399cc;
+    color: white;
+}

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/aboutform.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">        
+        <link rel="stylesheet" href="css/new-file.css">
+        <link rel="stylesheet" href="css/my-style.css">
+        <link rel="stylesheet" href="css/amazeui.min.css">
+        <link rel="stylesheet" href="css/wap.css">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+            <link rel="stylesheet" href="css/appcan.control.css">
+       
+    </head>
+    <body class="um-vp ">
+        
+        <div id="page_0" class="up ub ub-ver  bc-gra11" tabindex="0">
+           
+                <header data-am-widget="header" class="myAppHead am-header am-header-default">
+      <div class="am-header-left am-header-nav">
+        <div class="nav-btn" id="nav-left">
+        <div class="fa fa-angle-left fa-2x"></div>
+        </div>
+        </div>
+          <h1 class="am-header-title">用户注册</h1>
+       </header>
+          <div style="height: 3.0625em;">
+         
+     </div>
+            <div id="content" class="tx-l bc-text-bla ub ub-pc bc-gra11 ub-ver">
+                  </div>
+                <div class="uba bc-border-gra bc-gra11 ub-ver umar-h" style="margin:1.5em 1.5em 0.5em 1.5em;border-color:#d3d3d3;">
+                    <div class="ub ub-ac bc-text-bla ulab border-h uinn3">
+                        <div class="uinn ulim1  bc-text-gra1 " style="width:5em">
+                            手机号码
+                        </div>
+                        <div class="ub-f1 uc-a1 uinput uinn4">
+                            <input placeholder="*"  type="tel" class="uc-a1" id="mobile">
+                        </div>
+                    </div>
+                  <div class="ub ub-ac bc-text-bla ulab border-h uinn3">
+                        <div class="uinn ulim1  bc-text-gra1 " style="width:5em">
+                            姓&nbsp; &nbsp; &nbsp; &nbsp;名
+                        </div>
+                        <div class="ub-f1 uc-a1 uinput uinn4">
+                            <input placeholder="*（长度大于2位）"  type="text" class="uc-a1" id="username">
+                        </div>
+                    </div>
+                    
+                    <div class="ub ub-ac bc-text-bla ulab border-h uinn3">
+                        <div class="uinn ulim1  bc-text-gra1 " style="width:5em">
+                            身份证号
+                        </div>
+                        <div class="ub-f1  uc-a1 uinput uinn4">
+                            <input placeholder="*"  type="text" class="uc-a1" id="id">
+                          
+                        </div>
+                    </div>
+                    <div class="ub ub-ac bc-text-bla ulab border-h uinn3">
+                        <div class="uinn ulim1  bc-text-gra1 " style="width:5em">
+                            报考单位
+                        </div>
+                        <div class="ub-f1 uc-a1 uinput uinn4">
+                            <input placeholder="*"  type="text" class="uc-a1" id="company">
+                        </div>
+                    </div>
+                   
+                    
+                    <div class="ub ub-ac bc-text-bla ulab border-h uinn3">
+                        <div class="uinn ulim1  bc-text-gra1 " style="width:5em" >
+                            密&nbsp; &nbsp; &nbsp; &nbsp;码
+                        </div>
+                        <div class="ub-f1  uc-a1 uinput uinn4">
+                            <input placeholder="*（长度大于6位）"  type="password" class="uc-a1" id="password">
+                        </div>
+                    </div>
+                    <div class="ub ub-ac bc-text-bla ulab uinn3">
+                        <div class="uinn ulim1  bc-text-gra1 " style="width:5em" >
+                            确认密码
+                        </div>
+                        <div class="ub-f1  uc-a1 uinput uinn4">
+                            <input placeholder="*（长度大于6位）"  type="password" class="uc-a1" id="password1">
+                        </div>
+                    </div>
+                </div>
+                <div class="ub ub-pj ub-ac ub-pc Suinn6" style="padding-left:1.5em">
+                    <div >
+                        <input type="checkbox" name="che1" class="uhide" value="" id="xieyiId" checked>
+                        <div id="xieid" class="ub bc-text-bla" onclick="appcan.elementFor(window.event)">
+                            <div class="che-icon1 ub-img umw2 Swid3" style="min-height: 1.5em;min-width: 2em;"></div>
+                        </div>
+                    </div>
+                    <div class="ub-f1">
+                        同意服务协议
+                    </div>
+                    <div class="btn ub-f1 bc-text-red1 ulev-1" onclick="appcan.window.open('Agreement','Agreement.html',10)">
+                        查看协议
+                    </div>
+                  
+                </div>
+                <div class="tx-l1">
+                    *为必填项
+                </div>
+                <div style="padding: 0.5em 1.5em;">
+                    <div class="btn ub ub-ac bc-text-wh ub-pc bc-red1 uc-a1 umh3 bred uinn2 font_w"  id="btn">
+                        提交注册
+                    </div>
+                </div>
+            </div>
+      
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        //post&put请求头
+        function addHeader(xhr) {
+            xhr.setRequestHeader('X-MAS-APP-INFO', '11374511/public');
+        }
+        function addHeaderWithContentType(xhr) {
+            addHeader(xhr);
+            xhr.setRequestHeader("Content-Type", "application/json");
+        }
+        appcan.button("#btn", "ani-act", function() {
+                regist();
+            })
+        //注册
+        function regist(){
+            var telephone = $('#mobile').val();//手机号          
+            var username = $('#username').val();//姓名
+            var isagree = $("#xieyiId").attr("checked");//是否同意服务协议
+            var passwd = $('#password').val();
+            var passwd1 = $('#password1').val();
+            var password = '';
+            var rePhone = /^1[3|4|5|8][0-9]\d{4,8}$/;
+            var id = $('#id').val();
+            var company = $('#company').val();
+            if (telephone == "" || telephone.length == 0) {
+                alert("请输入手机号！");
+                // appcan.window.openToast({
+                    // msg : '请输入手机号码',
+                    // duration : 2000,
+                    // position : 5,
+                    // type : 0
+                // });
+                return;
+            }
+            if ((!rePhone.test(telephone)) || (telephone.length < 11)) {
+                alert("不是完整的11位手机号！");
+                // appcan.window.openToast({
+                    // msg : '不是完整的11位手机号或者正确的手机号前七位',
+                    // duration : 2000,
+                    // position : 5,
+                    // type : 0
+                // });
+                return;
+            }
+            if (username == "" || username.length == 0|| (username.length < 2)) {
+                alert("请输入姓名！");
+                // appcan.window.openToast({
+                    // msg : '请输入姓名',
+                    // duration : 2000,
+                    // position : 5,
+                    // type : 0
+                // });
+                return;
+            }
+             if (id == "" || id.length == 0|| (id.length < 18)) {
+                 alert("请输入身份证号！");
+                // appcan.window.openToast({
+                    // msg : '请输入身份证号',
+                    // duration : 2000,
+                    // position : 5,
+                    // type : 0
+                // });
+                return;
+            }
+             if (company == "" || company.length == 0) {
+                 alert("请输入报考单位！");
+                // appcan.window.openToast({
+                    // msg : '请输入报考单位',
+                    // duration : 2000,
+                    // position : 5,
+                    // type : 0
+                // });
+                return;
+            }
+           if (passwd == "" || passwd.length == 0|| (passwd.length < 6)) {
+               alert("请检查密码！");
+                // appcan.window.openToast({
+                    // msg : '请检查密码',
+                    // duration : 2000,
+                    // position : 5,
+                    // type : 0
+                // });
+                return;
+            }
+            if (passwd1 == "" || passwd1.length == 0|| (passwd1.length < 6)) {
+                alert("请输入确认密码！");
+                // appcan.window.openToast({
+                    // msg : '请输入确认密码',
+                    // duration : 2000,
+                    // position : 5,
+                    // type : 0
+                // });
+                return;
+            }
+            if (passwd == passwd1) {
+                password = $('#password').val();
+            } else {
+                alert("两次密码不一致！");
+                // appcan.window.openToast({
+                    // msg : '两次密码不一致',
+                    // duration : 2000,
+                    // position : 5,
+                    // type : 0
+                // });
+                return;
+            }
+            if (!isagree) {
+                alert("请先阅读并同意商户使用协议！");
+                return;
+            }
+           appcan.request.ajax({
+                    type:"POST",//
+                    url:"http://192.168.0.254/webroot/public/index.php/app/user/register",
+                    timeout:10000,
+                    data:{
+                        mobile:$("#mobile").val(),
+                        user_pwd:$("#password").val(),
+                        user_name:$("#username").val(),
+                       identity_id :$("#id").val(),
+                        company_name:$("#company").val(),
+                    },
+                    success:function(data, status,requestCode,response, xhr){
+                        // 如果数据访问成功，则会进入本回调中，data为返回的数据    
+                        alert("服务器返回结果为："+data);// 此时data是JSON字符串，使用时需要解析
+                        //var obj_data = JSON.parse(data);  // JSON解析，obj_data为JS对象 
+                        var obj_data = eval("("+data+")");
+                        if(obj_data.status == "success")
+                        {
+                            // obj_data.status为成功，说明登录成功1
+                            alert("注册成功！！！，进入主页！");  
+                            //localStorage.setItem('logs',1);//'logs' 注册状态
+                           
+                            appcan.window.open('login','login.html',2); 
+                        }else{
+                            // 注册失败，根据code查看失败原因
+                            // localStorage.setItem('logs',0);
+                            if(obj_data.code == "-1")
+                                alert("注册失败请重新注册!!!");
+                            else
+                                alert("身份证号已注册!!!");
+                        }
+                    },
+                error: function(xhr, status, errMessage) {
+                     alert("error");
+                     alert(xhr.status);
+                }
+         }); 
+         }
+         appcan.button(".nav-btn", "btn-act", function() {
+                    appcan.window.close(-1);})
+    </script>
+</html>

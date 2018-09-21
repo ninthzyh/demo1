@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        start-up
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            uexJPush.onReceiveRegistration = function onReceiveRegistration(info){};
+            
+            // 收到文章推送后，本地保存文章ID
+            uexJPush.onReceiveNotification=function(data){
+                var  da = JSON.parse(data); 
+                appcan.locStorage.setVal('article_id',da.extras.article_id);
+            }
+          
+            // 用户点击之后，跳转至文章详情页
+            uexJPush.onReceiveNotificationOpen=function(data){
+                // 打开文章详情页
+                appcan.window.open("pages_content","pages_content.html")
+            }
+             isdenglu();
+        });
+        // function isdenglu(){
+          // //  var islog=appcan.locStorage.val('islog');
+            // var islog = appcan.locStorage.getVal("logs");
+            // if (islog==1) {
+// 
+                  // appcan.window.open("index_content","index_content.html")
+//              
+            // }else{
+                 // appcan.window.open("login","login.html")
+            // }
+        // }
+        function isdenglu(){
+          //  var islog=appcan.locStorage.val('islog');
+            var islog = appcan.locStorage.getVal("logs");
+            if (islog==1) {
+                  var params = {
+                                    alias:"login"  
+                  };
+                  var data = JSON.stringify(params);
+                  uexJPush.setAlias(data);
+                  appcan.window.open("index_content","index_content.html")
+             
+            }else{
+                  var params = {
+                    alias:"unlogin"  
+                  };
+                  var data = JSON.stringify(params);
+                  uexJPush.setAlias(data);
+                       appcan.window.open("login","login.html")
+                  }
+        }
+    </script>
+</html>

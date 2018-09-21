@@ -1,0 +1,422 @@
+.th_pic{
+    /*background-image: url('icons/1314.png') !important;*/ 
+    min-height: 4.6375em;
+    max-height:4.6375em;
+    max-width:4.3875em;
+    min-width: 4.3875em;
+    /*background-position: 0.53em 1.18em;*/
+    padding:1.18em 0.5em 0 0.53em;
+   
+}
+
+h1.utx-c{
+    color:#2f2f2f;
+}
+div.items1{
+    height: 20%;
+   
+}
+p{
+    color:#8b8b8b;
+    line-height: 1.4em;
+    margin-top: 0.3em;
+}
+
+.c-red2
+{
+	background-color:#be001e;
+}
+.b-gra-f
+{
+	border-top:1px solid #c92440;
+}
+.t-gra-shd{
+	color:#cdcdcd;
+}
+.umar-t02
+{
+	 margin-top:0.2em;
+}
+.umar-t05
+{
+	 margin-top:0.5em;
+}
+.umar-b06
+{
+	 padding-top:0.6em;
+}
+.umar-l03
+{
+	 margin-left:0.3em;
+}
+.umar-r1{
+	margin-right:.7em;
+}
+.umar-l05
+{
+	 margin-left:0.5em;
+}
+.umar-l07
+{
+	 margin-left:0.7em;
+}
+.umar1-d {
+	margin: 0.3em 0 0 0.5em;
+}
+.umar04
+{
+	 margin:0.4em 0.4em 0.4em 0;
+}
+.umar-b1{ margin-bottom:1em;}
+.umw13
+{
+	width:1.1em;
+	height:1.1em;
+}
+.mw1{
+	width:1.4em;
+}
+.uw2
+{
+	width:1.25em;
+}
+.uh2
+{
+	height:1.25em;
+}
+.uh3
+{
+	height:3em;
+}
+.uh14
+{
+	height:1.4em;
+}
+.uw1
+{
+	width:2px;
+}
+.tdlt{
+	text-decoration:line-through;
+}
+.lh15{
+	line-height:1.5em;
+}
+.uinn04{
+	padding:0.5em 1.2em;
+}
+.uinn02{
+	padding:0.2em;
+}
+.ulev-07 {
+	font-size: 0.7em !important;
+}
+.mar{
+	margin-left:1em;
+}
+.mar1{
+	margin-top:1em;
+}
+.mar2{
+	margin-left:3em;
+}
+.mar-int1{
+	margin:1.5em;
+}
+.tgra1{
+	color:#555555 !important;
+}
+.wordbreak{
+	word-break:break-all;
+}
+.lh{
+	line-height:1.5em;
+}
+.imgwh{
+	min-width:7em;
+	min-height:5em;
+}
+.imgwh1{
+	min-width:.9em;
+	min-height:.9em;
+}
+.imgwh2{
+	min-width:6em;
+	min-height:6em;
+}
+.bbor{
+	border:2px solid #fff; 
+	min-width:7em;
+	min-height:5em;
+}
+.bbor1{
+	border-bottom:1px solid #cbcbcb; 
+}
+.bdash{
+	border-bottom:1px dashed #cbcbcb; 
+}
+.bred{
+	border: 1px solid #00A1EA;
+}
+.pad1{
+	padding:1em 1em;
+}
+.pad2{
+	padding: 0.3em .5em;
+}
+.pad1pot7{
+	padding:.8em .7em;
+}
+.star li{
+	margin-left:.2em;
+}
+.order{
+	background-color:#be001e;
+}
+.order1{
+	background-color:#7d7d7d;
+}
+.order2{
+	background-color:#44b800;
+}
+.uca{
+	-webkit-border-radius: 1em;
+	border-radius: 1em
+}
+.uca1{
+	-webkit-border-radius: 3em;
+	border-radius: 3em
+}
+.rel li{
+	position:relative;
+}
+.cm-red{
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#af001c), to(#c00220)));
+	background-image: -webkit-linear-gradient(top, #af001c 0%,  #b0001c 100%);
+	background-image: linear-gradient(top, #af001c 0%,  #c00220 100%);
+}
+.cm-red-act{
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#c00220), to(#af001c)));
+	background-image: -webkit-linear-gradient(top, #c00220 0%,  #af001c 100%);
+	background-image: linear-gradient(top, #c00220 0%,  #af001c 100%);
+}
+.photo{
+	position:absolute;
+	bottom:1em;
+	left:.8em;
+}
+.photo1{
+	position:absolute;
+	bottom:0em;
+	left:3em;
+}
+.uinnde{
+	padding: 1em 2em;
+	margin: 0;
+}
+.login-img{ background-image:url('images/login-left.png');}
+.logout-img{ background-image:url('images/login-right.png');}
+.login-imwh{ width:1.3em; height:1.2em;}
+/*我的会员卡*/
+.res-h16 {
+	background-image: url('images/menu-pic.png');
+	width: 4em;
+	min-height: 4em;
+}
+.erweima {
+	background-image: url('images/erweima.jpg');
+}
+.uinn-h8 {
+	padding-left: 1.6em;
+	padding-top: 0.5em;
+}
+
+.t-red1 {
+	color: #c92440;
+}
+
+.ubb1{
+	border-bottom:1px dashed;
+}
+.b-gra1{
+	border-color:#d5d5d5;
+}
+.uc-a1{
+	-webkit-border-radius: 0.3em;
+	border-radius: 0.3em;
+}
+
+/*预定*/
+.b-t{ 
+	border:thin solid #cbcbcb;
+	width:100%;
+	min-height:6.2em;
+}
+/*首页字体大小*/
+.ulim7{
+	max-width: 7em;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+/*预定信息也面*/
+.hui-but-d{
+	background-image: url('images/hui_but.png');
+	width: 1em;
+	height: 1.5em;
+}
+.ut-d{
+	padding: .8em 1em .8em;
+	margin: 0;
+}
+/*评论页面*/
+.res-h9-big {
+    background-image: url('images/camera-big.png');
+    width: 4em;
+    height: 4em;
+}
+.umar5-d{
+	margin:0 0.5em;
+}
+.umar-lbj
+{
+	 margin-left:1.875em;
+}
+.umar-la
+{
+	 margin-left:-1.5em;
+}
+.umar-b2
+{
+	 margin-bottom:1.375em;
+}
+.umwa
+{
+	width:1.5em;
+	height:1.5em;
+}
+
+
+.im-pic2{
+    background-image: url('images/jian.gif');
+}
+.im-bor{
+    background-image: url('images/bor.png');
+}
+.im-del{
+    background-image: url('images/delete.png');
+    min-width:1.1em;
+}
+.im-search{
+    background-image: url('images/search.png');
+}
+.im-cuxiaoDetail{
+    background-image: url('images/cuxiaoDetail.png');
+}
+.im-star{
+    background-image: url('img/star.png');
+}
+.im-star1{
+    background-image: url('img/star1.png');
+}
+.wh_star{
+    background-image: url('images/wh_star.png');
+}
+.im-mybg1{
+    background-image: url('img/my-img.png');
+}
+.im-photo{
+    background-image: url('img/my_photo.png');
+}
+.up-arrow{
+    background-image: url('images/up-arrow.png');
+}
+.im-myicon1{
+    background-image: url('img/my_icon1.png');
+}
+.im-myicon2{
+    background-image: url('img/my_icon2.png');
+}
+.im-myicon3{
+    background-image: url('img/my_icon3.png');
+}
+.im-myicon4{
+    background-image: url('img/my_icon4.png');
+}
+.im-myicon5{
+    background-image: url('img/my_icon5.png');
+    width:1.3em;
+    height:1.5em;
+}
+.im-myicon6{
+    background-image: url('img/password.png');
+    width:1.3em;
+    height:1.5em;
+}
+.im-myicon7{
+    background-image: url('img/my_icon7.png');
+    width:1.3em;
+    height:1.5em;
+}
+.im-myicon8{
+    background-image: url('img/my_icon8.png');
+    width:1.3em;
+    height:1.5em;
+}
+.im-myicon6no{
+    background-image: url('img/password2.png');
+    width:1.3em;
+    height:1.5em;
+}
+.im-photono{
+    background-image: url('img/my_photo-no.png');
+}
+.im-myicon1no{
+    background-image: url('img/my_icon1-no.png');
+}
+.im-myicon2no{
+    background-image: url('img/my_icon2-no.png');
+}
+.im-myicon3no{
+    background-image: url('img/my_icon3-no.png');
+}
+.im-myicon4no{
+    background-image: url('img/my_icon4-no.png');
+}
+.im-myicon5no{
+    background-image: url('img/my_icon5-no.png');
+    width:1.3em;
+    height:1.5em;
+}
+.im-myicon6no{
+    background-image: url('img/password2.png');
+    width:1.3em;
+    height:1.5em;
+}
+.im-menu_left_bg_h{
+    background: url('img/menu_left_red_bg_h.png') repeat-y center right;
+}
+.im-menu_left_bg{
+    background: url('img/menu_left_red_bg.png') repeat-y center right;
+}
+
+.my-call-1{
+    background-image: url('img/m1_1.png');
+    width:1.3em;
+    height:1.5em;
+}
+.my-call-2{
+    background-image: url('img/m1_2.png');
+    width:1.3em;
+    height:1.5em;
+}
+.im-about-1{
+    background-image: url('img/m2_1.png');
+    width:1.3em;
+    height:1.5em;
+}
+.im-about-2{
+    background-image: url('img/m2_2.png');
+    width:1.3em;
+    height:1.5em;
+}

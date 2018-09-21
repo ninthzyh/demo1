@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/amazeui.min.css">
+        <link rel="stylesheet" href="css/wap.css">
+   </head>
+    </div>
+
+    <body class="um-vp sc-bg2" ontouchstart >
+ <div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+    <a href="#top">
+        <img class="am-gotop-icon-custom" src="css/img/goTop.png" />
+    </a>
+</div>
+         <div id="listview"  class="ubt bc-border sc-bg my_fsize"></div>
+               
+         <!--动态列表显示区域-->
+        <!--        <div style="margin-top:2em;">动态视频列表显示区域</div> -->
+                <div id="news_list" class="ub ub-ver" style="margin:0.1em;">
+                    
+                </div>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/amazeui.min.js"></script>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/appcan.listview.js"></script>
+        <script src="js/appcan.slider.js"></script>
+    </body> 
+    <script>
+    
+    function openlaws(artLaws){
+           localStorage.setItem('artIdsLaws',artLaws);
+           appcan.window.open({
+           name : 'by1',
+           data : 'schoolPages_content.html',
+           });
+         }
+         
+         
+         
+         function showData(pages){
+             
+             var data1 = JSON.parse(appcan.locStorage.getVal("col_ids"));
+            var col_id0 = data1[0].col_ids;
+            
+            appcan.request.ajax({
+                    type:"POST",//
+                    url:"http://192.168.0.254/webroot/public/index.php/app/news/getNewsListByColumId",
+                    timeout:10000,
+                    data:{
+                        col_id:col_id0,
+                        page:pages
+                    },
+                    success:function(data, status,requestCode,response, xhr){
+                        // 如果数据访问成功，则会进入本回调中，data为返回的数据    
+                        //alert("服务器返回结果为："+data);// 此时data是JSON字符串，使用时需要解析
+                        var obj_data = JSON.parse(data);  // JSON解析，obj_data为JS对象
+                        //alert("结果标识位："+obj_data.status); // obj_data的格式参照接口说明
+                        var str = "";
+                        if(obj_data.status == "success")
+                        {
+                            // obj_data.status为成功，说明有数据
+                            var news_data = obj_data.data;
+                            //alert("数据长度："+news_data.length); // 查看有几组数据
+                            for(var i=0; i < news_data.length;i++)
+                            {
+                                str +=  '<div class="ub ub-f1 am-list-item-thumbed sc-bg2" onclick="openlaws(   '+news_data[i].article_id+'  )">'+  
+                                            '<img  style="height:6em;width:8em;" src="'+news_data[i].head_img+'" />'+ 
+                                            '<div class="ub ub-f1 ub-ver umar-l ub-pc">'+ 
+                                                '<div class="ub-f1" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:bold">'+news_data[i].title+'</div>'+ 
+                                                '<div class="ub-f2  ulev-1" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">'+news_data[i].description+'</div>'+ 
+                                               '<div class="ub-f1 ulev-2">发表时间：'+news_data[i].push_time+'</div>'+ 
+                                            '</div>'+ 
+                                        '</div>';  // 字符串拼接显示
+                            }
+                        }else{
+                            str += "暂无数据！！！"
+                        }
+                        // 在动态列表显示区域进行显示
+                        document.getElementById("news_list").innerHTML = str;   
+                    }
+            })
+         }
+         
+         var pages = 1;
+          appcan.ready(function() {
+            appcan.initBounce();
+            
+            showData(pages);
+             appcan.frame.setBounce({
+                bounceType:[0,1],
+                upEndCall:function(type){ 
+                    if(type=="0"){         
+                        setTimeout(function(){
+                            appcan.window.resetBounceView(type);
+                            //getdata(type);
+                        }, 1500);
+                        pages++;
+                        showData(pages);
+                    }
+                },
+                color:'#FFFFFF',
+                imgSettings:{ 
+                   // "imagePath":"res://reload.gif",    
+                    "textColor":"#EB6996",
+                    "pullToReloadText":"拖动刷新",
+                    "releaseToReloadText":"释放刷新",
+                    "loadingText":"加载中，请稍候"
+                }
+            })        
+        })
+
+    
+ // function opennews(){
+               // appcan.window.open({
+                // name : 'by1',
+                // data : 'pages.html',
+//                 
+            // });
+        // }
+    </script>
+</html>

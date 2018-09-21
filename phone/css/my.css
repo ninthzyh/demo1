@@ -1,0 +1,31 @@
+#bycontent{
+          padding-top: 1em;
+}
+#bycontent .sec{padding: 0.5em;border-bottom:0.1em solid #DDDDDE;height: 5em; }
+img{width: 7em;height:5em;float: left;margin-right: 0.2em;}
+.text1{
+     height: 1.2em;
+     margin-top: 0.2em;
+     /*font-size: 1.1em;*/
+}
+
+.text2,.text3{color: #808080;font-size: 0.8em;}
+.text2{margin-top: 3em;float: left;}
+.text3{margin-top: 3em;float: right;}
+.title{text-indent: 0.3em;font-size: 1.2em;color: #C70505;}
+#text4{padding: 0.5em;border-bottom:0.1em solid #DDDDDE;height: 2em;color: #808080;font-size: 0.8em;text-align: center;}
+#text5{color: #808080;font-size: 0.9em;float: left;}
+.text6{color: #808080;font-size: 0.8em;float:right;}
+#bottom2{border-bottom:0.5em;}
+.bottom1{padding: 0.5em;border-bottom:0.1em solid #DDDDDE;height: 6em; }
+
+.two-1{padding: 0.5em; font-weight:bold;}
+.two-2{padding: 0.3em;font-size : 0.7em;color: #FC7800;}
+.two-3{padding: 0.5em;margin-top: 3em}
+/*.bt1{width: 7em;height:5em; margin-top: 0.5em}
+.bt2{width: 7em;height:5em;margin-left: 0.8em;float:left;margin-top: 0.5em}
+.bt3{width: 7em;height:5em;margin-left: 0.8em;float:left;margin-top: 0.5em}*/
+.bt1,.bt2,.bt3{float: left;width: 30%;margin-top: 1em}
+
+/*.bt2{margin:1em 0.3em}*/
+

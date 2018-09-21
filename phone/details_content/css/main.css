@@ -1,0 +1,99 @@
+.ziben{
+	background-image:url('myImg/ziben.png');
+}
+.pingjia{
+	background-image:url('myImg/pingjia.png');
+}
+.t-gra
+{
+	color:gray;
+}
+.uba-details
+{
+	border:1px solid #c9c9c9;
+	
+}
+.umh-list8{
+	height:7.8125em;
+}
+.umw-list6{
+	width:5.9375em;
+}
+.t-blu1-list{
+	color:#579dd5;
+}
+.t-gra-book{
+	color:#4b4b4b;
+}
+.t-org-details{
+	color:#fe7902;
+}
+.ubb-list{
+	border-bottom:1px solid#cccccc;
+}
+.uinn-details{
+	padding:0.2em;
+}
+.b-gra-c9{
+	border-color:#c9c9c9;
+}
+.umw5-details{
+	min-width:5em;
+}
+
+.uinn-rd1{
+	padding:0.68em 0;
+}
+.ulh-rd1{
+	line-height:1.4em;
+}
+.c-gre-rd1{
+	background-color:#218dd5;
+}
+.b-gre-rd1{
+	border:1px solid #416f00;
+}
+.uinn-de1{
+	padding:0.625em 0.625em 0.9375em 0.625em;
+}
+.umar-83{
+	margin-right:0.83em;
+}
+.uinn-l6{
+	padding-left:0.625em;
+}
+.uw-25{
+	width:25%;
+}
+.c-gra-d6{
+	background-color:#d6d6d6;
+}
+.b-gra-a6{
+	border-color:#a6a6a6;
+}
+.t-bla-28{
+	color:#282828;
+}
+.b-blu-218{
+	border-bottom:0.125em solid #218dd5;
+}
+.uinn-5{
+	padding:0.5em 0.83em 0.4em 0.83em;
+}
+.t-blu1-list{
+	color:#218dd5;
+}
+
+.f{
+    display: inline-block;
+    font:normal normal normal 14px/1 FontAwesome;
+    -webkit-font-smoothing：antialiased;
+}
+.fa-2x
+{
+    font-size:2em;
+}
+
+#be:hover{
+    background-color: :#436EEE;
+}

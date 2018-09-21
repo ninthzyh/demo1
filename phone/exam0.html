@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/amazeui.min.css">
+        <link rel="stylesheet" href="css/wap.css">
+   </head>
+    </div>
+
+    <body class="um-vp bc-bg1" ontouchstart >
+
+         <div id="listview"  class="ubt bc-border sc-bg my_fsize"></div>
+      
+          
+         <!--动态列表显示区域-->
+         <!--       <div style="margin-top:2em;">动态视频列表显示区域</div> -->
+                <div id="test_list" class="ub ub-ver" style="margin:0.1em;">
+                    
+                </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/appcan.listview.js"></script>
+        <script src="js/appcan.slider.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/amazeui.min.js"></script>
+    </body>
+    <script>
+    
+    
+    
+        
+       function opentest(test){
+           localStorage.setItem('testIds',test);
+           appcan.window.open({
+           name : 'by2',
+           data : 'paper.html',
+           
+           });
+         }
+          
+           function showDataTest(pages){
+           // var data1 = JSON.parse(appcan.locStorage.getVal("col_ids"));
+            //var col_id0 = data1[0].col_ids;
+            
+          //  alert("showpage:"+pages);
+            appcan.request.ajax({
+                    type:"POST",//
+                    url:"http://39.104.65.100/index.php/app/test/testlist",
+                    timeout:10000,
+                     data:{
+                        //col_id:col_id0,
+                        page:pages
+                    },
+                    success:function(data, status,requestCode,response, xhr){
+                        // 如果数据访问成功，则会进入本回调中，data为返回的数据    
+                        //alert("服务器返回结果为："+data);// 此时data是JSON字符串，使用时需要解析
+                        var obj_data = JSON.parse(data);  // JSON解析，obj_data为JS对象
+                        //alert("结果标识位："+obj_data.status); // obj_data的格式参照接口说明
+                        var str = "";
+                        if(obj_data.status == "success")
+                        {
+                            // obj_data.status为成功，说明有数据
+                            var test_data = obj_data.data;
+                            //alert("数据长度："+course_data.length); // 查看有几组数据
+                            for(var i=0; i < test_data.length;i++)
+                            {
+                                str +=  '<div class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block" onclick="opentest(   '+test_data[i].tid+' )">'+  
+                                            '<h3 class="am-list-item-hd pet_list_one_bt" style="font-weight:bold">'+test_data[i].title+'</h3>'+  
+                                            ' <div class="pet_list_zt_img">'+
+                                             '</div>'+
+                                             '<div class="am-list-item-text pet_list_two_text">课程名称：'+test_data[i].cat_name+'</div>'+ 
+                                               '<div class="am-list-item-text pet_list_two_text">考试时间：'+test_data[i].test_time+'分钟</div>'+ 
+                                               '<div class="am-list-item-text pet_list_two_text">总分：'+test_data[i].test_time+'分</div>'+ 
+                                        '</div>'+
+                                        '<hr>'; // 字符串拼接显示
+                            }
+                            
+                        }else{
+                            str += "暂无数据！！！"
+                        }
+                        //alert(str);
+                        // 在动态列表显示区域进行显示
+                        document.getElementById("test_list").innerHTML = str; 
+                      
+                    }
+            })//ajax end     
+            
+        }
+          
+          
+          //页数
+          var pages = 1;
+          appcan.ready(function() {
+            appcan.initBounce();
+              //获取col_id
+            
+            showDataTest(pages);
+            //alert("appcan:"+pages);
+            appcan.frame.setBounce({
+                bounceType:[0,1],
+                upEndCall:function(type){ 
+                    if(type=="1"){         
+                        setTimeout(function(){
+                            appcan.window.resetBounceView(type);
+                            
+                        }, 1500);
+                        pages++;
+                        //alert("test1");
+                        showData(pages);
+                        //alert(pages);
+                        //alert("test2");
+                    }
+                },
+                color:'#FFFFFF',
+                imgSettings:{ 
+                   // "imagePath":"res://reload.gif",    
+                    "textColor":"#EB6996",
+                    "pullToReloadText":"拖动刷新",
+                    "releaseToReloadText":"释放刷新",
+                    "loadingText":"加载中，请稍候"
+                }
+            })
+            
+            
+            
+                 
+        })
+       
+
+    
+    
+    
+
+    </script>
+</html>

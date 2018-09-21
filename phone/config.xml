@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<widget appId="11701627" channelCode="0000" height="480" pid="" sreensize="4.5" version="00.00.0000" viewmode="application" widgetId="" width="320">
+	
+	<name>app</name>
+	<description/>
+	<author email=""> </author>
+	<icon src="icon.png"/>
+	<license href=""/>
+	<content encoding="utf-8" src="start-up.html"/>
+	<updateurl>http://svn.appcan.cn/sourceCode/117/016/27/trunk</updateurl>
+	<logserverip/> 
+	<showmyspace>false</showmyspace>
+	<obfuscation>false</obfuscation>
+	<bgcolor>#fefefe</bgcolor>
+	<orientation>15</orientation>
+<debug>false</debug>
+<partobfuscation/>
+<webapp/>
+<config desc="uexJPush" type="KEY">
+
+<param name="$UEXJPUSH_PACKAGE$" platform="android" value="com.quxiang.www"/>
+<param name="$UEXJPUSH_APPKEY$" platform="android" value="1729d8cefeed23733b629b45"/>   
+</config>
+</widget>

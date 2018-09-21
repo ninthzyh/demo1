@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/ui-base.css">
+    <link rel="stylesheet" href="css/ui-box.css">
+    <link rel="stylesheet" href="css/ui-color.css">
+</head>
+<body class="ub um-vp bc-bg ub-ver uinn" style="margin:0 0.8em 0 0.8em;" id="test_list"  ontouchstart >
+	
+    
+</body>
+ <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+    
+      appcan.ready(function() {
+            appcan.initBounce();
+            var testId = JSON.parse(appcan.locStorage.getVal("testIds"));
+            //alert(testId)
+            appcan.request.ajax({
+                    type:"POST",//
+                    url:"http://192.168.0.254/webroot/public/index.php/app/test/testDetail",
+                    timeout:10000,
+                     data:{
+                        tid:testId,
+                    },
+                    success:function(data, status,requestCode,response, xhr){
+                        // 如果数据访问成功，则会进入本回调中，data为返回的数据    
+                        alert("服务器返回结果为："+data);// 此时data是JSON字符串，使用时需要解析
+                       console.log(data);
+                      //  var obj_data = JSON.parse(data);  // JSON解析，obj_data为JS对象
+                        var obj_data=eval("("+data+")");
+                        //alert("结果标识位："+obj_data.status); // obj_data的格式参照接口说明
+                        var str = "";
+                        if(obj_data.status == "success")
+                        {
+                            // obj_data.status为成功，说明有数据
+                            var test_data = obj_data.data;
+                         
+                            //alert("数据长度："+test_data.length); // 查看有几组数据
+                            //alert("数据长度："+test_data);
+                             for(var i=0; i < test_data.length;i++)
+                             {
+                                str +=  '<div class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">'+  
+                                            '<h3 class="am-list-item-hd pet_list_one_bt" style="font-weight:bold">试题id：'+test_data[i].qid+'</h3>'+  
+                                            ' <div class="pet_list_zt_img">'+
+                                             '</div>'+
+                                             '<div class="am-list-item-text pet_list_two_text">试题类型：'+test_data[i].type+'</div>'+ 
+                                               '<div class="am-list-item-text pet_list_two_text">问题：'+test_data[i].content+'</div>'+ 
+                                               '<div class="am-list-item-text pet_list_two_text">答案：'+test_data[i].answer+'</div>'+ 
+                                        '</div>'+
+                                        '<hr>'; // 字符串拼接显示
+                           }
+                            
+                        }else{
+                            str += "暂无数据！！！"
+                        }
+                        //alert(str);
+                        // 在动态列表显示区域进行显示
+                        document.getElementById("test_list").innerHTML = str; 
+                      
+                    }
+            })//ajax end  
+            
+            
+        })
+        
+</script>
+</html>

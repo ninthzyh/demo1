@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/amazeui.min.css">
+        <link rel="stylesheet" href="css/wap.css">
+        <link rel="stylesheet" href="de_content/css/main.css">
+    </head>
+    <body class="um-vp" ontouchstart>
+        <div id="page_0" class="up ub ub-ver sc-bg2" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="bc-head"></div>
+            <div id="tabview" class="uf sc-bg2"></div>
+             <!--header结束--><!--content开始-->
+            <div id="content" class="ub-f1 tx-l ">
+                
+            </div>
+            <!--content结束-->
+        </div>
+        <header data-am-widget="header" class="myAppHead am-header am-header-default">
+    <div class="am-header-left am-header-nav">
+        <div class="nav-btn" id="nav-left">
+        <div class="fa fa-angle-left fa-2x"></div>
+        </div>
+        </div>
+      <div class="am-header-right am-header-nav">
+          <a data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}">
+                    <i class="am-header-icon am-icon-bars"></i>
+          </a>
+      </div>
+          <h1 class="am-header-title">在线学习</h1>
+       </header>
+       <div id="doc-oc-demo2" class="myAppOffcanvas am-offcanvas">
+  <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+    <div class="am-offcanvas-content">
+        <div class="ub-f0 ub ub-ver ">
+                <div id="home" class="ub-f1 ub ub-ver ub-ac ub-pc wid">
+                    <div class="ub-img uwh-acc2 accIcon6 umar-at1"></div>
+                    <div class="ulev-1 umar-t-acc1">
+                                                            首页
+                    </div>
+                </div> 
+                <div id="laws" class="ub-f1 ub ub-ver ub-ac ub-pc wid">
+                    <div class="ub-img uwh-acc2 accIcon1 umar-at1"></div>
+                    <div class="ulev-1 umar-t-acc1">
+                                                            政策法规
+                    </div>
+                </div>
+                <div id="news" class="ub-f1 ub ub-ver ub-ac ub-pc wid">
+                    <div class="ub-img uwh-acc2 accIcon2 umar-at1"></div>
+                    <div class="ulev-1 umar-t-acc1">
+                                                            新闻
+                    </div>
+                </div>
+                <div id="study" class="ub-f1 ub ub-ver ub-ac ub-pc wid">
+                    <div class="ub-img uwh-acc2 accIcon3 umar-at1"></div>
+                    <div class="ulev-1 umar-t-acc1">
+                                                           在线学习
+                    </div>
+                </div>
+                
+                <div id="test" class="ub-f1 ub ub-ver ub-ac ub-pc wid">
+                    <div class="ub-img uwh-acc2 accIcon5 umar-at1"></div>
+                    <div class="ulev-1 umar-t-acc1">
+                                                           在线考试
+                    </div>
+                </div>
+        </div>
+        
+        
+    </div>
+  </div>
+</div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="js/appcan.tab.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/amazeui.min.js"></script>
+        
+ </body>
+      <script>
+   var tabview = appcan.tab({
+    selector : "#tabview",
+    hasIcon : false,
+    hasAnim : true,
+    hasLabel : true,
+    hasBadge : false,
+    data : [{
+        label : "治污减霾",
+    }, {
+        label : "岗位培训",
+    }, {
+        label : "行业培训",
+    }
+   ]
+});
+tabview.on("click",function(obj, index){
+     appcan.window.selectMultiPopover("content", index);
+})
+ appcan.ready(function() {
+            var bodyWidth=$(document.body).width();
+            // alert("bodyWidth=="+bodyWidth);
+            appcan.locStorage.setVal('bodyWidth',bodyWidth);
+            var titHeight = $('#header').offset().height + $('#tabview').offset().height;
+
+            appcan.frame.open({
+                id : "content",
+                url : 
+                [{
+                    "inPageName" : "治污减霾",
+                    "inUrl" : "content_study.html",
+                }, {
+                    "inPageName" : "岗位培训",
+                    "inUrl" : "content_study.html",
+                }, {
+                    "inPageName" : "行业培训",
+                    "inUrl" : "content_study.html",
+                }],
+                top : titHeight,
+                left : 0,
+                index : 0,
+                change : function(err, res) {
+                    tabview.moveTo(res.multiPopSelectedIndex);
+                }
+            });
+            window.onorientationchange = window.onresize = function() {
+                appcan.frame.resize("content", 0, top);
+            }
+        });
+        
+        appcan.button(".nav-btn", "btn-act", function() {
+            appcan.window.close(-1);
+        })
+ </script>
+</html>

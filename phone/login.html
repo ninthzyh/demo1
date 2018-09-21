@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/aboutform.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">      
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/new-file.css">
+        <link rel="stylesheet" href="css/my-style.css">
+        <link rel="stylesheet" href="css/amazeui.min.css">
+        <link rel="stylesheet" href="css/wap.css">
+    </head>
+    <body class="um-vp ub-f11" onclick>
+        <header data-am-widget="header" class="myAppHead am-header am-header-default">
+      
+          <h1 class="am-header-title">用户登录</h1>
+       </header>
+       <div style="height: 3.0625em;">
+         
+     </div>
+        <div class="ub ub-f11 ub-ver">
+            <div class="uba sc-bg2 ub-a1 ub-ver mar-int1" style="margin-bottom:0;border-color: #d3d3d3;">
+                <div class="bdash uinput uinn4">
+                    <input placeholder="输入手机号" type="tel" class="umh4 text-indpot8 " id="mobile" value="">
+                </div>
+                <div class="uinput uinn4">
+                    <input placeholder="密码" type="password" class="umh4 text-indpot8" id="pass" value="">
+                </div>
+            </div>
+            <div class="ub ub-hor uinn">
+                <input id="isSave" type="checkbox" name="che1" class="uhide" checked  value="">
+               
+            </div>
+            <div class="ub-f1 font_w" style="padding-top:0;padding:.5em 1.5em;">
+                <div class="btn1 tx-c bred bc-red1 uinn2 btn-r uc-a1 bc-text-head umh3 ub-ac ub-pc ub font_w" id="bttn0">
+                    登陆
+                </div>
+
+            </div>
+            <div class="uinn2 ub ub-pe">
+                <div class="bc-text-red1 btn1"  id="bttn">
+                    免费注册
+                </div>
+                <div class="res-right ub-img uinn-h" style="margin-top:.2em;"></div>
+            </div>
+            <div class="uinn2 ub ub-pe">
+                <div class="bc-text-red1 btn1" id="bttn1">
+                    找回密码
+                </div>
+                <div class="res-right ub-img uinn-h" style="margin-top:.2em;"></div>
+            </div>
+        </div>
+       
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        
+        //登录
+         appcan.ready(function() {
+            if (appcan.locStorage.val('telephone') != "" || appcan.locStorage.val('telephone') != null) {
+                $('#mobile').val(appcan.locStorage.val('telephone'));
+                $('#pass').val(appcan.locStorage.val('password'));
+            } else {
+                $('#mobile').val("");
+                $('#pass').val("");
+            }
+        });
+        function login1() {
+            var telephone = $('#mobile').val();
+            var password = $('#pass').val();
+            var isSave = $("#isSave").attr("checked");
+            //是否保存用户名和密码
+            var rePhone = /^1[3|4|5|8][0-9]\d{4,8}$/;
+            if (telephone == "" || telephone.length == 0) {
+                alert("请输入手机号！");
+                return;
+            }
+            if (!rePhone.test(telephone)) {
+                alert("手机号格式不正确，请重新输入！");
+                return;
+            }
+            if (password == "" || password.length == 0|| (password.length < 6)) {
+                alert("请检查密码！");
+                return;
+            }
+            if (isSave) {
+                 appcan.locStorage.setVal('telephone', $('#mobile').val());
+                 appcan.locStorage.setVal('password', $('#pass').val());
+            } else {
+                 appcan.locStorage.remove('telephone');
+                 appcan.locStorage.remove('password');
+            }
+           appcan.request.ajax({
+                    type:"POST",//
+                    url:"http://192.168.0.254/webroot/public/index.php/app/user/login",
+                    timeout:10000,
+                    data:{
+                        mobile:$("#mobile").val(),
+                        user_pwd:$("#pass").val()
+                    },
+                    success:function(data, status,requestCode,response, xhr){
+                        // 如果数据访问成功，则会进入本回调中，data为返回的数据    
+                        alert("服务器返回结果为："+data);// 此时data是JSON字符串，使用时需要解析
+                        console.log(data);
+                        //var obj_data ={"status":"success","data":5} ;
+                       // var obj_data = JSON.parse(data);  // JSON解析，obj_data为JS对象 
+                        var obj_data = eval("("+data+")");
+                       // console.log(data);
+                        if(obj_data.status == "success")
+                        {
+                            //登陆成功
+                            // var params = {
+                                    // alias:"login"  
+                                // };
+                                // var data = JSON.stringify(params);
+                                 // uexJPush.setAlias(data);
+                            // obj_data.status为成功，说明登录成功1
+                            alert("登陆成功！！！，进入主页！");//登录成功 在本地
+                           localStorage.setItem('loginId',obj_data.data);
+                           localStorage.setItem('logs',1);//'logs' 登录状态
+                           
+                            appcan.window.open('user_pwd','index_content.html',2); 
+                        }else{
+                            // 登陆失败，根据code查看失败原因
+                            localStorage.setItem('logs',0);
+                            if(obj_data.code == "-1")
+                                alert("手机号不存在!!!");
+                            else
+                                alert("密码错误!!!");
+                        }
+                    },
+                error: function(xhr, status, errMessage) {
+                     alert("error");
+                     alert(xhr.status);
+                }
+         }); 
+        }
+        
+        appcan.button(".btn1", "btn-act1", function() {
+                switch(this.id){
+                case "bttn0":
+                    if(appcan.locStorage.val('page')==1){
+                        appcan.window.evaluateScript('shop','closethis()');
+                    }else{
+                        appcan.window.evaluateScript('my','close()');
+                    }
+                    login1();//执行登录函数
+                break;
+                case "bttn":
+                    appcan.window.open('sign','sign.html','10');//跳转到注册页面
+                break;
+                case "bttn1":
+                    appcan.window.open('aboutPass','aboutPass.html','10');//跳转到找回密码页面
+                break;
+               }
+        });
+    </script>
+</html>

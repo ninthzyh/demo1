@@ -1,0 +1,51 @@
+.tab
+{
+	height:3em;
+}
+.uinn-a13{
+	padding:0.1em 0 0.2em 0;
+}
+
+input[type="radio"]:checked + div.tab-act-bg
+{
+	background-color:#cacaca;
+}
+
+
+
+input[type="radio"] + div>div.tp-map{
+	background-image: url(../tupian/icon1.png);
+}
+input[type="radio"]:checked + div>div.tp-map{
+	background-image: url(../tupian/icon1_act.png);
+}
+
+
+input[type="radio"] + div>div.tp-talk{
+	background-image: url(../tupian/icon2.png);
+}
+input[type="radio"]:checked + div>div.tp-talk{
+	background-image: url(../tupian/icon2_act.png);
+}
+
+input[type="radio"] + div>div.tp-set{
+	background-image: url(../tupian/icon3.png);
+}
+input[type="radio"]:checked + div>div.tp-set{
+	background-image: url(../tupian/icon3_act.png);
+}
+input[type="radio"]:checked + div.tab-act-bg>div.tp-search{
+	background-image: url(footer-btn/footerImg3.png);
+}
+
+input[type="radio"] + div>div.tp-my{
+	background-image: url(../tupian/icon4.png);
+}
+input[type="radio"]:checked + div>div.tp-my{
+	background-image: url(../tupian/icon4_act.png);
+}
+input[type="radio"]:checked + div.tab-act-bg>div.tp-my{
+	background-image: url(footer-btn/footerImg5.png);
+}
+
+

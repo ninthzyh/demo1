@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+          <link rel="stylesheet" href="css/aboutform.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">      
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/new-file.css">
+        <link rel="stylesheet" href="css/my-style.css">
+        <link rel="stylesheet" href="css/amazeui.min.css">
+        <link rel="stylesheet" href="css/wap.css">
+       
+        
+    </head>
+   <body class="um-vp " ontouchstart>
+        <div id="page_0" class="up ub ub-ver bc-bg" tabindex="0"  style="background-color: #FFFFFF;">
+            
+            <!--header开始-->
+            <header data-am-widget="header" class="myAppHead am-header am-header-default">
+      <div class="am-header-left am-header-nav">
+        <div class="nav-btn" id="nav-left">
+        <div class="fa fa-angle-left fa-2x"></div>
+        </div>
+        </div>
+          <h1 class="am-header-title">找回密码</h1>
+       </header>
+       <div style="height: 3.0625em;">
+         
+     </div>
+            <!--header结束--><!--content开始-->
+               
+                <div class="uba sc-bg2 ub-a1 ub-ver mar-int1" style="margin-bottom:0;border-color: #d3d3d3;">
+                   <div class="bdash uinput uinn4">
+                        <input type="tel" id="mobile" placeholder="请输入手机号!" onblur="checkTel(this)" class="umh4 text-indpot8 " />
+                    </div>
+                    
+                   <div class=" uinput uinn4">
+                        <input type="identity" id="id" placeholder="请输入身份证号!" onblur="checkId(this)" class="umh4 text-indpot8 " />
+                    </div>
+                  </div>  
+                  <div class="ub-f1 font_w" style="padding-top:0;padding:.5em 1.5em;">
+                    <div id="reset" class="btn1 tx-c bred bc-red1 uinn2 btn-r uc-a1 bc-text-head umh3 ub-ac ub-pc ub font_w" style="background: #00A1EA;color: #FFFFFF;padding: .6em 2.5em;margin-top: 1.5em">
+                        确定                   
+                    </div> 
+                    </div>
+               
+            </div>        
+            <!--content结束-->
+       
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        
+    </body>
+    <script>
+        appcan.ready(function() {
+                            
+        });
+     
+        appcan.button("#reset","btn-act",function(){  
+            appcan.request.ajax({
+                    type:"POST",//
+                    url:"http://192.168.0.254/webroot/public/index.php/app/user/forgetPwd",
+                    timeout:10000,
+                    data:{
+                        mobile:$("#mobile").val(),
+                        identity_id:$("#id").val()
+                    },
+                   success:function(data, status,requestCode,response, xhr){
+                        // 如果数据访问成功，则会进入本回调中，data为返回的数据    
+                        alert("服务器返回结果为："+data);// 此时data是JSON字符串，使用时需要解析
+                        //var obj_data = JSON.parse(data);  // JSON解析，obj_data为JS对象 
+                        var obj_data = eval("("+data+")");
+                        if(obj_data.status == "success")
+                        {
+                            // obj_data.status为成功，说明登录成功1
+                            localStorage.setItem("ID",obj_data.data);
+                            alert("身份认证成功！");
+                            appcan.window.open('findPass','findPass.html',2); 
+                        }else{
+                            // 登陆失败，根据code查看失败原因
+                            if(obj_data.code == "-1")
+                                alert("身份认证失败!!!");
+                            else
+                                alert("身份认证失败!!!");
+                        }
+                    }
+               
+         }); 
+        })
+
+         
+         //验证手机号
+        function checkTel(object) {
+            var mobile = object.value;
+            var patrn = /^(\+?0?86\-?)?1[345789]\d{9}$/;
+            if (mobile.length == 0) {
+                object.value = '';
+                object.placeholder = "手机号不能为空！";
+                return false;
+            } else if (0 <= mobile.indexOf(' ')) {
+                object.value = '';
+                object.placeholder = "手机号不能有空格！";
+                return false;
+            } else if (!patrn.exec(mobile)) {
+                object.value = '';
+                object.placeholder = "请输入正确的手机号！";
+                return false;
+            } else {
+                object.placeholder = '';
+                return true
+            }
+        }
+            //验证身份证号
+            function checkId(object) {
+            var id = object.value;
+            var patrn = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+            if (id.length == 0) {
+                object.value = '';
+                object.placeholder = "身份证号不能为空！";
+                return false;
+            } else if (0 <= id.indexOf(' ')) {
+                object.value = '';
+                object.placeholder = "身份证号不能有空格！";
+                return false;
+            } else if (!patrn.exec(id)) {
+                object.value = '';
+                object.placeholder = "请输入正确的身份证号！";
+                return false;
+            } else {
+                object.placeholder = '';
+                return true
+            }
+        }
+         appcan.button(".nav-btn", "btn-act", function() {
+            appcan.window.close(-1);
+        })
+       
+    </script>
+</html>

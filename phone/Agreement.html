@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="css/amazeui.min.css">
+        <link rel="stylesheet" href="css/wap.css">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+    </head>
+    <body class="um-vp sc-bg2" ontouchstart>
+    <header data-am-widget="header" class="myAppHead am-header am-header-default">
+      <div class="am-header-left am-header-nav">
+        <div class="nav-btn" id="nav-left">
+        <div class="fa fa-angle-left fa-2x"></div>
+        </div>
+        </div>
+          <h1 class="am-header-title">协议</h1>
+       </header>
+       <div style="height: 3.0625em;">
+         
+     </div>
+    <div id="text">
+</div>
+<script src="js/appcan.js"></script>
+<script src="js/appcan.control.js"></script>
+</body>
+    <script>
+       appcan.ready(function(){
+    appcan.initBounce();
+    uexWidgetOne.cbGetCurrentWidgetInfo=function(opId,dataType,data){
+             // console.log(data);
+  var obj=JSON.parse(data);
+  //appcan.logs(obj.version);
+  var str='<div class="uinn2" 　style="line-height:125%">'+
+        　　'　　xxx手机APP（当前版本：V'+obj.version+'）text。'+
+            '</div>'+
+            '<div class="uinn2" style="line-height:125%">'+
+        　　'　　text'+
+            '</div>'+
+            '<div class="uinn2" style="line-height:125%">'+
+        　'　　text'+
+        '   </div>';
+        $('#text').html(str);
+          }
+        uexWidgetOne.getCurrentWidgetInfo();
+})
+  appcan.button(".nav-btn", "btn-act", function() {
+                    appcan.window.close(-1);})
+    </script>
+</html>
